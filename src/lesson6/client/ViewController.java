@@ -1,8 +1,6 @@
 package lesson6.client;
 
 import javafx.collections.FXCollections;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
@@ -31,24 +29,14 @@ public class ViewController {
 
     @FXML
     public void initialize() {
-        usersList.setItems(FXCollections.observableArrayList(lesson6.client.EchoClient.USERS_TEST_DATA));
-        sendButton.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                ViewController.this.sendMessage();
-            }
-        });
-        textField.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                ViewController.this.sendMessage();
-            }
-        });
+        usersList.setItems(FXCollections.observableArrayList(Client.USERS_TEST_DATA));
+        sendButton.setOnAction(event -> ViewController.this.sendMessage());
+        textField.setOnAction(event -> ViewController.this.sendMessage());
     }
 
     private void sendMessage() {
         String message = textField.getText();
-//        appendMessage(message);
+        appendMessage("Я: " + message);
         textField.clear();
 
         try {
@@ -56,9 +44,8 @@ public class ViewController {
 
         } catch (IOException e) {
             e.printStackTrace();
-            EchoClient.showErrorMessage("Ошибка подключения", "Ошибка при отправке сообщения", e.getMessage());
+            Client.showErrorMessage("Ошибка подключения", "Ошибка при отправке сообщения", e.getMessage());
         }
-
     }
 
     public void appendMessage(String message) {

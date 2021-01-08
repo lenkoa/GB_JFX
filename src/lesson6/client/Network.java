@@ -36,16 +36,12 @@ public class Network {
             e.printStackTrace();
             return false;
         }
-
-
     }
 
     public void close() {
         try {
             socket.close();
         } catch (IOException e) {
-
-
         }
     }
 
@@ -62,13 +58,12 @@ public class Network {
             try {
                 while (true) {
                     String message = in.readUTF();
-                    viewController.appendMessage("Я: " + message);
+                    viewController.appendMessage("Сервер: " + message);
                 }
-
             }
             catch (IOException e) {
                 e.printStackTrace();
-                EchoClient.showErrorMessage("Ошибка подключения", "", e.getMessage());
+                Client.showErrorMessage("Ошибка подключения", "", e.getMessage());
             }
         });
         thread.setDaemon(true);

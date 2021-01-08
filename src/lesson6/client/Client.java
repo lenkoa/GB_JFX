@@ -8,20 +8,17 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.stage.Stage;
 
-import java.io.DataInputStream;
-import java.io.DataOutputStream;
-import java.net.Socket;
 import java.util.List;
 
 
-public class EchoClient extends Application {
+public class Client extends Application {
 
     public static final List<String> USERS_TEST_DATA = List.of("Boris Nikolaevich", "Martin Nekotov", "Gandalf the White");
 
     @Override
     public void start(Stage primaryStage) throws Exception {
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(EchoClient.class.getResource("view.fxml"));
+        loader.setLocation(Client.class.getResource("view.fxml"));
 
         Parent root = loader.load();
 
@@ -40,8 +37,6 @@ public class EchoClient extends Application {
         network.waitMessage(viewController);
 
         primaryStage.setOnCloseRequest(windowEvent -> network.close());
-
-
     }
 
     public static void showErrorMessage(String title, String message, String errorMessage) {
