@@ -1,0 +1,25 @@
+#inputField {
+    -fx-background-color: #b8bbdb;
+    background-color: #b8bbdb; /* а VSC предлагает добавить и такой формат для совместимости - нужно? */
+    -fx-text-fill: #12121b;
+    -fx-alignment: center;
+}
+
+.menu-bar {
+    -fx-background-color: #5c5e80;
+    background-color: #5c5e80;
+    -fx-font-size: 16;
+    font-size: 16;
+}
+
+.send-button {
+    -fx-border-radius: 30;
+    border-radius: 30;
+    -fx-background-radius: 30;
+    -fx-background-color: #5c5e80;
+    background-color: #5c5e80;
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 21;
+    font-size: 21;
+
+}
